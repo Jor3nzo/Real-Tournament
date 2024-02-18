@@ -155,6 +155,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  explosionPrefab: {fileID: 4244449157306854073, guid: fa898652c39660044b8ca02ebd258ac0,
+    type: 3}
 --- !u!54 &-5362299114687263805
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -273,7 +275,7 @@ PrefabInstance:
     - target: {fileID: 8592838350235648864, guid: eb0210f22daf12b47a61ad6dd5caa918,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
