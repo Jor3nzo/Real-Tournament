@@ -138,8 +138,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4243142377512290176}
   - {fileID: 3870948231331799635}
-  - {fileID: 4877926054994393834}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7074304512623645084
@@ -157,6 +157,9 @@ MonoBehaviour:
   speed: 20
   explosionPrefab: {fileID: 4244449157306854073, guid: fa898652c39660044b8ca02ebd258ac0,
     type: 3}
+  hitPrefab: {fileID: 8762427043847272565, guid: 32d3d1ccceb303c469392198af07dd0e,
+    type: 3}
+  bounces: 2
 --- !u!54 &-5362299114687263805
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -182,9 +185,9 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!1001 &7781935640178672120
+  m_Constraints: 112
+  m_CollisionDetection: 1
+--- !u!1001 &1345882901318450322
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -242,49 +245,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7335521801979850924, guid: eb0210f22daf12b47a61ad6dd5caa918,
-        type: 3}
-      propertyPath: ShapeModule.type
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7335521801979850924, guid: eb0210f22daf12b47a61ad6dd5caa918,
-        type: 3}
-      propertyPath: ShapeModule.radiusThickness
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7335521801979850924, guid: eb0210f22daf12b47a61ad6dd5caa918,
-        type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7335521801979850924, guid: eb0210f22daf12b47a61ad6dd5caa918,
-        type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 7335521801979850924, guid: eb0210f22daf12b47a61ad6dd5caa918,
-        type: 3}
-      propertyPath: InitialModule.startLifetime.scalar
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 8592838350235648864, guid: eb0210f22daf12b47a61ad6dd5caa918,
         type: 3}
       propertyPath: m_Name
       value: Rocket smoke
-      objectReference: {fileID: 0}
-    - target: {fileID: 8592838350235648864, guid: eb0210f22daf12b47a61ad6dd5caa918,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb0210f22daf12b47a61ad6dd5caa918, type: 3}
---- !u!4 &4877926054994393834 stripped
+--- !u!4 &4243142377512290176 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2904578616947735314, guid: eb0210f22daf12b47a61ad6dd5caa918,
     type: 3}
-  m_PrefabInstance: {fileID: 7781935640178672120}
+  m_PrefabInstance: {fileID: 1345882901318450322}
   m_PrefabAsset: {fileID: 0}
