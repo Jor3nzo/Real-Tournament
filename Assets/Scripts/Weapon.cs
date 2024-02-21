@@ -1,7 +1,12 @@
 using UnityEngine;
+using TMPro;
+using UnityEngine.Events;
 
 public class Weapon : MonoBehaviour
 {
+	public UnityEvent onRightClick;
+
+
 	public GameObject bulletPrefab;
 
 	public int maxAmmo = 10;
@@ -10,6 +15,10 @@ public class Weapon : MonoBehaviour
 	public bool isAutoFire;
 	public float fireInterval = 0.5f;
 	public float fireCooldown;
+	public float recoilAngle;
+	public int bulletsPerShot = 1;
+
+	
 
 
     private void Start()
@@ -19,11 +28,14 @@ public class Weapon : MonoBehaviour
     }
 
 
-    void Update()
+	void Update()
 	{
+
+
+
 		if (!isAutoFire && Input.GetKeyDown(KeyCode.Mouse0))
 		{
-			Shoot();		
+			Shoot();
 		}
 
 		if (isAutoFire && Input.GetKey(KeyCode.Mouse0))
@@ -32,27 +44,41 @@ public class Weapon : MonoBehaviour
 		}
 
 		if (Input.GetKeyDown(KeyCode.R) && ammo < maxAmmo)
-        {
+		{
 			Reload();
-        }
+		}
 
 		fireCooldown -= Time.deltaTime;
 
+		if (Input.GetKeyDown(KeyCode.Mouse1))
+		{
+			onRightClick.Invoke();
+		}
 	}
 
-	void Shoot()
+
+
+	public void Shoot()
 	{
 		if (isRealoading) return;
 		if (ammo <= 0)
-        {
+		{
 			Reload();
 			return;
-        }
+		}
 		if (fireCooldown > 0) return;
-  
+
 		ammo--;
 		fireCooldown = fireInterval;
-		Instantiate(bulletPrefab,transform.position,transform.rotation);
+
+		for (int i = 0; i < bulletsPerShot; i++)
+		{
+			var bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+			var offsetX = Random.Range(-recoilAngle, recoilAngle);
+			var offsetY = Random.Range(-recoilAngle, recoilAngle);
+			bullet.transform.eulerAngles += new Vector3(offsetX, offsetY, 0);
+		}
+
 	}
 
 	async void Reload()
@@ -63,7 +89,5 @@ public class Weapon : MonoBehaviour
 		ammo = maxAmmo;
 		isRealoading = false;
 		print("Realoaded");
-	}
-
-	
+	}	
 }
